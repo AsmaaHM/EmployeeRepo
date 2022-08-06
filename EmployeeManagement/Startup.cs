@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using EmployeeManagement.Data;
+using EmployeeManagement.Models;
+using EmployeeManagement.Helpers;
 
 namespace EmployeeManagement
 {
@@ -22,18 +26,22 @@ namespace EmployeeManagement
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmployeeManagement", Version = "v1" });
             });
+
+            services.AddSignalR(); 
+            services.AddDbContext<EmployeeManagementContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("EmployeeManagementContext")));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -45,8 +53,16 @@ namespace EmployeeManagement
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors(x => x
+             .AllowAnyMethod()
+             .AllowAnyHeader()
+             .SetIsOriginAllowed(origin => true) 
+             .AllowCredentials()); 
 
+            app.UseMiddleware<JwtMiddleware>();
+
+
+            // custom jwt auth middleware
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

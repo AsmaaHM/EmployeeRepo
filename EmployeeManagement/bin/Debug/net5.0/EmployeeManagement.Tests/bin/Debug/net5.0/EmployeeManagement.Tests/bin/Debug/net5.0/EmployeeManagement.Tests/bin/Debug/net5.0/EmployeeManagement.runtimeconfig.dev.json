@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Asmaa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Asmaa\\.nuget\\packages"
+    ]
+  }
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asmaa\\source\\repos\\AsmaaHM\\EmployeeRepo\\EmployeeManagement\\EmployeeManagement.csproj": {}
+    "D:\\Task\\EmployeeManagement\\EmployeeManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asmaa\\source\\repos\\AsmaaHM\\EmployeeRepo\\EmployeeManagement\\EmployeeManagement.csproj": {
+    "D:\\Task\\EmployeeManagement\\EmployeeManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asmaa\\source\\repos\\AsmaaHM\\EmployeeRepo\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectUniqueName": "D:\\Task\\EmployeeManagement\\EmployeeManagement.csproj",
         "projectName": "EmployeeManagement",
-        "projectPath": "C:\\Users\\Asmaa\\source\\repos\\AsmaaHM\\EmployeeRepo\\EmployeeManagement\\EmployeeManagement.csproj",
+        "projectPath": "D:\\Task\\EmployeeManagement\\EmployeeManagement.csproj",
         "packagesPath": "C:\\Users\\Asmaa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asmaa\\source\\repos\\AsmaaHM\\EmployeeRepo\\EmployeeManagement\\obj\\",
+        "outputPath": "D:\\Task\\EmployeeManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asmaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,43 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNet.SignalR": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.11.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
